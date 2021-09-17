@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
+import type { NextPage } from 'next';
+import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <main>Under Development</main>
+      <main className="uppercase">Under Development</main>
     </div>
   );
 };

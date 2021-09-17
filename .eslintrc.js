@@ -4,7 +4,15 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ["next/core-web-vitals", "plugin:react/recommended", "airbnb"],
+  extends: [
+    "airbnb",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/typescript",
+    "next/core-web-vitals",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -13,7 +21,15 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: [
+    "react",
+    "babel",
+    "jest",
+    "react-hooks",
+    "markdown",
+    "import",
+    "@typescript-eslint",
+  ],
   settings: {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"],
@@ -25,30 +41,65 @@ module.exports = {
     },
   },
   rules: {
-    "max-len": "off",
-    "import/extensions": "off",
-    "react/jsx-filename-extension": [
-      "error",
-      { extensions: [".js", ".jsx", ".ts", ".tsx"] },
+    "prettier/prettier": [
+      "warn",
+      {
+        singleQuote: true,
+      },
     ],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-    "react/jsx-props-no-spreading": "off",
-    "import/no-extraneous-dependencies": "off",
-    "func-names": "off",
-    "lines-between-class-members": "off",
-    "class-methods-use-this": "off",
-    "consistent-return": "off",
-    "object-curly-newline": "off",
-    "react/destructuring-assignment": "off",
-    "no-param-reassign": "off",
-    "jsx-a11y/no-static-element-interactions": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "no-unused-vars": "off",
-    "no-undef": "off",
-    "import/prefer-default-export": "off",
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
+
+    "react/jsx-one-expression-per-line": 0,
+    "react/prop-types": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-wrap-multilines": [
+      "error",
+      { declaration: false, assignment: false },
+    ],
+    "react/jsx-filename-extension": 0,
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": 0,
+    "react/sort-comp": 0,
+    "react/display-name": 0,
+    "react/static-property-placement": 0,
+    "react/no-find-dom-node": 0,
+    "react/no-unused-prop-types": 0,
+    "react/default-props-match-prop-types": 0,
+    "react-hooks/rules-of-hooks": 2, // Checks rules of Hooks
+
+    "import/no-unresolved": "error",
+    "import/extensions": 0,
+    "import/no-cycle": 0,
+    "import/no-extraneous-dependencies": [
+      0,
+      {
+        devDependencies: [
+          "site/**",
+          "tests/**",
+          "scripts/**",
+          "**/*.test.js",
+          "**/__tests__/*",
+          "*.config.js",
+          "**/*.md",
+        ],
+      },
+    ],
+
+    "no-use-before-define": 0,
+    "no-undef": 0,
+    "no-shadow": 0,
+    "lines-between-class-members": 0,
+
+    "@typescript-eslint/no-use-before-define": 2,
+    "@typescript-eslint/no-shadow": [2, { ignoreTypeValueShadow: true }],
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-inferrable-types": 0,
+    "no-underscore-dangle": 0,
+
+    // next
+    "@next/next/no-img-element": 0,
   },
 };
